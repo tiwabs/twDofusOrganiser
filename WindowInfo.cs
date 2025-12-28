@@ -86,12 +86,13 @@ namespace twDofusOrganiser
         {
             string raw = title ?? string.Empty;
 
-            string parsedName = raw;
+            string parsedName = string.Empty;
             string parsedClass = string.Empty;
 
             if (!string.IsNullOrWhiteSpace(raw))
             {
-                string[] parts = raw.Split('-', StringSplitOptions.RemoveEmptyEntries);
+                // Split only on the exact separator " - " to avoid false positives (e.g. Jean-Paul)
+                string[] parts = raw.Split(" - ", StringSplitOptions.None);
 
                 if (parts.Length >= 1)
                     parsedName = parts[0].Trim();
@@ -99,6 +100,10 @@ namespace twDofusOrganiser
                 if (parts.Length >= 2)
                     parsedClass = parts[1].Trim();
             }
+
+            // Fallback: if name is still empty, use the raw title
+            if (string.IsNullOrWhiteSpace(parsedName))
+                parsedName = raw.Trim();
 
             CharacterName = parsedName;
             ClassName = parsedClass;
