@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:twDofusOrganiser"
         mc:Ignorable="d"
-        Title="Tw Dofus Organizer v1.0"
+        Title="Tw Dofus Organizer v1.1"
         Width="520"
         SizeToContent="Height"
         ResizeMode="NoResize"
@@ -106,7 +106,7 @@
 
             <!-- Title aligned left to behave like a classic window header -->
             <TextBlock Grid.Column="0"
-                       Text="Tw Dofus Organizer v1.0"
+                       Text="Tw Dofus Organizer v1.1"
                        FontSize="16"
                        FontWeight="Bold"
                        HorizontalAlignment="Left"
